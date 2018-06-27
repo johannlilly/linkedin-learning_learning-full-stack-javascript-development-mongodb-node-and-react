@@ -1,4 +1,5 @@
 import config from './config';
+import fs from 'fs'; // fs core
 
 import express from 'express';
 const server = express();
@@ -25,7 +26,6 @@ server.get('/', (req, res) => {
 /**
  * GET the [About] page.
  *
- *
  * @param: the route we are interested in.
  * @param: the event handler, which receives both a request and response object
  *
@@ -34,7 +34,16 @@ server.get('/', (req, res) => {
  * @dev: # The about page
  */
 server.get('/about.html', (req, res) => {
-	res.send('The about page'); // return simple string
+	/**
+	 * readFile
+	 *
+	 * @param: path to file
+	 * @param: event handler => buffer of file's data
+	 *
+	 */
+	fs.readFile('./about.html', (err, data) => {
+		res.send(data.toString());
+	});
 });
 
 /**
