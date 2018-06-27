@@ -1,5 +1,4 @@
 import config from './config';
-import fs from 'fs'; // fs core
 
 import express from 'express';
 const server = express();
