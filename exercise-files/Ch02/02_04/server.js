@@ -19,8 +19,11 @@ server.get('/', (req, res) => {
 	 * `render()`.
 	 *
 	 * @param (string) name of EJS template.
+	 * @param (object) variable to render
 	*/
-  res.render('index');
+  res.render('index', {
+  	content: 'Hello Express and EJS!'
+  });
 });
 
 server.use('/api', apiRouter);
