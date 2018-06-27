@@ -22,7 +22,7 @@ server.get('/', (req, res) => {
 	 * @param (object) variable to render
 	*/
   res.render('index', {
-  	content: 'Hello Express and EJS!'
+  	content: 'Hello Express and <em>EJS!</em>'
   });
 });
 
