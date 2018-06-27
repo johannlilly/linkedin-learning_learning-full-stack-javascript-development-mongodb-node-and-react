@@ -1,4 +1,5 @@
 import config from './config';
+import apiRouter from './api'; // import router
 
 import express from 'express';
 const server = express();
@@ -21,6 +22,18 @@ const server = express();
 server.get('/', (req, res) => {
 	res.send('Hello Express'); // return simple string
 });
+
+
+/**
+ * Use router like any other Express middleware.
+ * 
+ * @param (string) route prefix
+ * @param (object) router
+ *
+ * @dev $ curl http://localhost:8080/about.html
+ * @dev # { data: [] }
+ */
+server.use('/api', apiRouter);
 
 /**
  * GET the [About] page using Express's static middleware.
