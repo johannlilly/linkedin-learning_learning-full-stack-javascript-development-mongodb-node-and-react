@@ -4,8 +4,23 @@ import apiRouter from './api';
 import express from 'express';
 const server = express();
 
+/**
+ * Use `EJS` as our view engine.
+ * We usually need the server to respond with an HTML view template, but with dynamic content inside.
+ * Instead of generating a big HTML string, we can use a dynamic template language lik `EJS`, "Embedded JavaScript".
+ * `EJS` is the simplest templating option out of the many options available.
+ *
+ * @param (string) 
+ * @param (string) template, by default located in `./views` folder/
+*/
+server.set('view engine', 'ejs');
 server.get('/', (req, res) => {
-  res.send('Hello Express');
+	/**
+	 * `render()`.
+	 *
+	 * @param (string) name of EJS template.
+	*/
+  res.render('index');
 });
 
 server.use('/api', apiRouter);
