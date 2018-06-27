@@ -24,27 +24,14 @@ server.get('/', (req, res) => {
 });
 
 /**
- * GET the [About] page.
+ * GET the [About] page using Express's static middleware.
+ * `.use` is how we put our middleware in the Express middleware stack.
+ * 
+ * @param: `express.static()`: add our middleware to the Express middleware stack
+ * @param: `public`; where we want our static assets to be hosted on the file system.
  *
- * @param: the route we are interested in.
- * @param: the event handler, which receives both a request and response object
- *
- * @dev: $ babel-node server.js
- * @dev: $ curl http://localhost:8080/about.html
- * @dev: # The about page
  */
-server.get('/about.html', (req, res) => {
-	/**
-	 * readFile
-	 *
-	 * @param: path to file
-	 * @param: event handler => buffer of file's data
-	 *
-	 */
-	fs.readFile('./about.html', (err, data) => {
-		res.send(data.toString());
-	});
-});
+server.use(express.static('public'));
 
 /**
  * We can use other methods to send things to the requester
