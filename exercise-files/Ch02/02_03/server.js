@@ -29,6 +29,8 @@ server.get('/', (req, res) => {
  * @param: `express.static()`: add our middleware to the Express middleware stack
  * @param: `public`; where we want our static assets to be hosted on the file system.
  *
+ * @dev: in a production environment, you should manage static assets separately from the node server, as there are much faster options, like `nginx`.
+ * @dev: in a development enviornmnet, to keep things simple, we are using the simple Express middleware.
  */
 server.use(express.static('public'));
 
