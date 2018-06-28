@@ -17,15 +17,27 @@ const App = (props) => {
 
 /**
  * Prop validation for wrong type
- * Prop validation for null value with `isReguired`. 
  * 
  * Object: 
  * @key the props we want to validate as keys
  * @value the type of these props
 */
 App.propTypes = {
-	headerMessage: React.PropTypes.string.isReguired
+	headerMessage: React.PropTypes.string
 }
+
+/**
+ * Default values for props.
+ * Prop validation for null value with `isReguired` no longer needed.
+ * 
+ * Object: 
+ * @key the props we want to supply a default value for.
+ * @value the defauly values.
+*/
+App.defaultProps = {
+	headerMessage: 'Hello!!'
+}
+
 
 ReactDOM.render(
   <App headerMessage="Hello props!" />,
