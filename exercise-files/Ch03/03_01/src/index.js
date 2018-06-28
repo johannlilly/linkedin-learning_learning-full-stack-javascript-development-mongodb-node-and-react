@@ -15,6 +15,6 @@ ReactDOM.render(
 	 * @param (string) any attributes we want to add to the tag.
 	 * @param (string) any children we want rendered
 	*/
-	React.createElement('h2', null, 'Hello React'),
+	<h2>Hello React with JSX!</h2>,
 	document.getElementById('root')
 );
