@@ -15,6 +15,6 @@ ReactDOM.render(
 	 * @param (string) any attributes we want to add to the tag.
 	 * @param (string) any children we want rendered
 	*/
-	<h2>Hello React with JSX!</h2>,
+	<h2>Hello React with JSX! -- {Math.random()}</h2>,
 	document.getElementById('root')
 );
