@@ -4,15 +4,14 @@ import Header from './Header';
 class App extends React.Component {
   /// Use a class property instead of a constructor
   state = { 
-    test: 42
+    pageHeader: 'Naming Contests'
   };
 	render() {
 		return (
 			<div className="App">
-				<Header message="Naming Contests" />
+				<Header message={this.state.pageHeader} />
 				<div>
-          {/* Use property on state object inside a variable */}
-				  {this.state.test}
+				  ...
 				</div>
 			</div>
 		);
