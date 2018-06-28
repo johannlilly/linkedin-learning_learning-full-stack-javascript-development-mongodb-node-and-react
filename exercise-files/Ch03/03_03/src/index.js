@@ -1,20 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = (props) => {
+const Header = ({ message }) => { // destructure the prop `message`
+	return(
+	    <h2 className="Header text-center"> {/* using a class name that matches the name of the component is good standard practice */}
+	      {message}
+	    </h2>
+	);	
+};
+
+Header.propTypes = {
+  message: React.PropTypes.string.isRequired
+};
+
+const App = () => {
   return (
-    <h2 className="text-center">
-      {props.headerMessage}
-    </h2>
+  	<div className="App">
+  		<Header message="Naming Contests"/>
+  		<div>
+  			...
+  		</div>
+    </div>
   );
-};
-
-App.propTypes = {
-  headerMessage: React.PropTypes.string
-};
-
-App.defaultProps = {
-  headerMessage: 'Hello!!'
 };
 
 ReactDOM.render(
