@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 /// We don't usually work with elements directly, but use componensts.
-/// We are able to create our own JSX-based HTML elements.
 
-const App = () => {
+/**
+ * @param (object) `props` includes all attributes passed to the JSX element.
+*/
+const App = (props) => {
 	return (
 		<h2 className="text-center">
-			Hello React Components!
+			{props.headerMessage}
 		</h2>
 	);
 };
 
 ReactDOM.render(
-  <App />,
+  <App headerMessage="Hello props!" />,
   document.getElementById('root')
 );
