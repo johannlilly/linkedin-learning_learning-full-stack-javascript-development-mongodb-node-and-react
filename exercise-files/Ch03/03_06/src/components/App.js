@@ -7,13 +7,11 @@ class App extends React.Component {
   };
   /// Lifecycle event that guarantees that the DOM has been mounted in the browser successfully.
   componentDidMount() {
-    console.log('did Mount');
-    debugger;
+    // timers, listeners
   }
   /// Lifecycle event that says the component is about to be unmounted.
   componentWillUnmount() {
-    console.log('will Unmount');
-    debugger;
+    // clean timers, listeners
   }
   render() {
     return (
