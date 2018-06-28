@@ -8,10 +8,23 @@ import ReactDOM from 'react-dom';
 const App = (props) => {
 	return (
 		<h2 className="text-center">
+			{/* Use another component inside the `<App/>` component */}
+			...
 			{props.headerMessage}
 		</h2>
 	);
 };
+
+/**
+ * Validate props.
+ * 
+ * Object: 
+ * @key the props we want to validate as keys
+ * @value the type of these props
+*/
+App.propTypes = {
+	headerMessage: React.PropTypes.string 
+}
 
 ReactDOM.render(
   <App headerMessage="Hello props!" />,
