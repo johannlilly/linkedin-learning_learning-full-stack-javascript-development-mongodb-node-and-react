@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+const color = Math.random() > 0.5 ? 'green' : 'red'; // ternary statement
+
 /**
  * Arguments of the `.render()` method.
  *
@@ -15,6 +17,6 @@ ReactDOM.render(
 	 * @param (string) any attributes we want to add to the tag.
 	 * @param (string) any children we want rendered
 	*/
-	<h2>Hello React with JSX! -- {Math.random()}</h2>,
+	<h2 className="text-center" style={{color}}>Hello React with JSX! -- {Math.random()}</h2>,
 	document.getElementById('root')
 );
