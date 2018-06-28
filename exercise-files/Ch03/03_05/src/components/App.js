@@ -2,12 +2,10 @@ import React from 'react';
 import Header from './Header';
 
 class App extends React.Component {
-  /// Use constructor to introduce `state`
-  constructor(props) {
-    super(props);
-    /// state object with property `test` on the object
-    this.state = { test: 42 };
-  }
+  /// Use a class property instead of a constructor
+  state = { 
+    test: 42
+  };
 	render() {
 		return (
 			<div className="App">
