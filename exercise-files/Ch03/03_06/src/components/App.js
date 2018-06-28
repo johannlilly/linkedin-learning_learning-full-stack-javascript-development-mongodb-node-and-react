@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import ContestPreview from './ContestPreview';
 
 class App extends React.Component {
   state = {
@@ -18,7 +19,11 @@ class App extends React.Component {
       <div className="App">
         <Header message={this.state.pageHeader} />
         <div>
-          ...
+          {/* spread object into ContestPreview so it gets all the properties of `contest` on the first level */}
+          {/* loop with a map call. map into ContestPreview elements, which exposes a `contest` element */}
+          {this.props.contests.map(contest =>
+            <ContestPreview {...contests} />
+          )}
         </div>
       </div>
     );
