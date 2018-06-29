@@ -17,8 +17,9 @@ class App extends React.Component {
       <div className="App">
         <Header message={this.state.pageHeader} />
         <div>
+          {/* you must provide a unique key with every map call to idetify the child element inside that map */}
           {this.props.contests.map(contest =>
-            <ContestPreview {...contest} />
+            <ContestPreview key={contest.id} {...contest} />
           )}
         </div>
       </div>
