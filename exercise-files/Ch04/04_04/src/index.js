@@ -5,8 +5,8 @@ import data from './testData';
 import App from './components/App';
 
 
-/// Before data is loaded, render the react application with an empty array
+/// Render `contests` from `state` instead of `props`
 ReactDOM.render(
-  <App contests={[]} />,
+  <App/>,
   document.getElementById('root')
 );
