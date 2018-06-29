@@ -9,8 +9,10 @@ class App extends React.Component {
     contests: []
   };
   componentDidMount() {
-    /// Use `setState()` to put data into the React state
-    /// This handles any delay in fetchign the API
+    /// Use `setState()` to put data into the React state.
+    /// This handles any delay in fetchign the API.
+    /// Havign the data in `state` also allows us to control the list more.
+    /// > $r.setState({ contests: $r.state.contests.slice(1) })
     this.setState({
       contests: data.contests
     })
