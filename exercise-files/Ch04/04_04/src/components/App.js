@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import ContestPreview from './ContestPreview';
+import data from '../testData';
 
 class App extends React.Component {
   state = {
@@ -8,7 +9,11 @@ class App extends React.Component {
     contests: []
   };
   componentDidMount() {
-    // timers, listeners
+    /// Use `setState()` to put data into the React state
+    /// This handles any delay in fetchign the API
+    this.setState({
+      contests: data.contests
+    })
   }
   componentWillUnmount() {
     // clean timers, listeners
