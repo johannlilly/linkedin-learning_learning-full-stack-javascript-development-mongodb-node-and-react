@@ -1,3 +1,9 @@
+<script type="text/javascript">
+  /// initial data as global variable on `window`
+  /// now you get the markup, as well as a global variable that holds all the data.  
+  window.initialData = <%- JSON.stringify(initialData) -%>
+</script>
+
 <%- include('header') -%>
-  <div id="root"><%- content -%></div>
+  <div id="root"><%- initialMarkup -%></div>
 <%- include('footer') -%>
