@@ -13,6 +13,7 @@ server.use(sassMiddleware({
 
 server.set('view engine', 'ejs');
 
+import './serverRender';
 server.get('/', (req, res) => {
   res.render('index', {
     content: '...'
@@ -22,6 +23,8 @@ server.get('/', (req, res) => {
 server.use('/api', apiRouter);
 server.use(express.static('public'));
 
-server.listen(config.port, () => {
+/// listen to the same port in our config
+/// adding `config.host` binds it to the same host
+server.listen(config.port, config.host, () => {
   console.info('Express listening on port', config.port);
 });
