@@ -1,19 +1,19 @@
 import React from 'react';
 import ContestPreview from './ContestPreview';
 
-const ContestList = ({ contests, onContestClick }) => (
+const ContestList = ({ contests, onContestClick }) => ( // `contests` variable is now an object, not an array
   <div className="ContestList">
-    {contests.map(contest =>
+    {Object.keys(contests).map(contestId => // iterate over the keys
       <ContestPreview
-        key={contest.id}
+        key={contestId}
         onClick={onContestClick}
-        {...contest} />
+        {...contests[contestId]} />
     )}
   </div>
 );
 
 ContestList.propTypes = {
-  contests: React.PropTypes.array,
+  contests: React.PropTypes.object,
   onContestClick: React.PropTypes.func.isRequired,
 };
 
