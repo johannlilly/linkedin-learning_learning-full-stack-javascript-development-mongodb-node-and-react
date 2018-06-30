@@ -12,7 +12,9 @@ class App extends React.Component {
     axios.get('/api/contests')
       .then(resp => {
         this.setState({
-          contests: resp.data.contests
+          // contests: resp.data.contests
+          /// React application will continue to work on the front-end, but will also render on the back-end.
+          contests: this.props.initialContests
         });
       })
       .catch(console.error);
