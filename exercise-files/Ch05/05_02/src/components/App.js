@@ -6,7 +6,7 @@ import ContestPreview from './ContestPreview';
 class App extends React.Component {
   state = {
     pageHeader: 'Naming Contests',
-    contests: []
+    contests: this.props.initialContests // initially empty, as passed in `index.js`
   };
   componentDidMount() {
     axios.get('/api/contests')
@@ -14,7 +14,7 @@ class App extends React.Component {
         this.setState({
           // contests: resp.data.contests
           /// React application will continue to work on the front-end, but will also render on the back-end.
-          contests: this.props.initialContests
+          contests: resp.data.contests
         });
       })
       .catch(console.error);
@@ -23,6 +23,7 @@ class App extends React.Component {
     // clean timers, listeners
   }
   render() {
+    debugger;
     return (
       <div className="App">
         <Header message={this.state.pageHeader} />

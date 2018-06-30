@@ -13,12 +13,16 @@ server.use(sassMiddleware({
 
 server.set('view engine', 'ejs');
 
-import './serverRender';
+import serverRender from './serverRender'; // instead of importing directly
 
 server.get('/', (req, res) => {
-  res.render('index', {
-    content: '...'
-  });
+  serverRender()
+    .then(content => { // content to feed to EJS template
+      res.render('index', {
+        content // when I do have the content, render it
+      });
+    })
+    .catch(console.error);
 });
 
 server.use('/api', apiRouter);
