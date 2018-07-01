@@ -14,8 +14,9 @@ server.use(sassMiddleware({
 
 server.set('view engine', 'ejs');
 
-server.get('/', (req, res) => {
-  serverRender()
+server.get(['/', '/contest/:contestId'], (req, res) => {
+  // req.params.contestId
+  serverRender(req.params.contestId) // pass as param
     .then(({ initialMarkup, initialData }) => {
       res.render('index', {
         initialMarkup,
