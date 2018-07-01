@@ -33,6 +33,18 @@ class App extends React.Component {
       });
     });
   };
+  fetchContestList = () => {
+    pushState(
+      { currentContestId: contestId },
+      '/'
+    );
+    api.fetchContestList().then(contest => {
+      this.setState({
+        currentContestId: null, // so UI changes
+        contests // put whole object on the state
+      });
+    });
+  };
   currentContest() {
     return this.state.contests[this.state.currentContestId];
   }
@@ -45,7 +57,9 @@ class App extends React.Component {
   }
   currentContent() {
     if (this.state.currentContestId) {
-      return <Contest {...this.currentContest()} />;
+      return <Contest
+                contestListClick={this.fetchContestList} // change state of UI. fetch contents each time.
+                {...this.currentContest()} />;
     }
 
     return <ContestList
