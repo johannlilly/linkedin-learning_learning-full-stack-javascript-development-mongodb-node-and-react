@@ -9,7 +9,6 @@ const pushState = (obj, url) =>
 
 class App extends React.Component {
   state = {
-    pageHeader: 'Naming Contests',
     contests: this.props.initialContests
   };
   componentDidMount() {
@@ -25,18 +24,28 @@ class App extends React.Component {
     );
     api.fetchContest(contestId).then(contest => {
       this.setState({
-        pageHeader: contest.contestName,
+        // pageHeader: contest.contestName,
         currentContestId: contest.id,
         contests: {
-          ...this.state.cotests,
+          ...this.state.contests,
           [contest.id]: contest
         }
       });
     });
   };
+  currentContest() {
+    return this.state.contests[this.state.currentContestId];
+  }
+  pageHeader() { // read `pageHeader` from this function instead of from state
+    if (this.state.currentContestId) {
+      return this.currentContest().contestName;
+    }
+
+    return 'Naming Contests';
+  }
   currentContent() {
     if (this.state.currentContestId) {
-      return <Contest {...this.state.contests[this.state.currentContestId]} />;
+      return <Contest {...this.currentContest()} />;
     }
 
     return <ContestList
@@ -46,7 +55,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header message={this.state.pageHeader} />
+        <Header message={this.pageHeader() /* read from function instead of state */} />
         {this.currentContent()}
       </div>
     );
