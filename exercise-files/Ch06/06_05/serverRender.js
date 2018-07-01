@@ -11,7 +11,7 @@ const serverRender = () =>
     .then(resp => {
       return {
         initialMarkup: ReactDOMServer.renderToString(
-          <App initialContests={resp.data.contests} />
+          <App initialData={resp.data} /> // control initial structure passed to `App` component. It can handle both `initialContent` and `currentContent`.
         ),
         initialData: resp.data
       };
